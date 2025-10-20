@@ -76,7 +76,7 @@ FamilyIndex	IndividualID	Role
 **Minimal run** (VCF outputs):
 
 ```
-Rscript parati.R \
+Rscript path/to/PARATI/PARATI_script.R \
   --geno path/to/trios.vcf.gz \
   --family path/to/family_index.xlsx \
   --chr 22 \
@@ -86,11 +86,11 @@ Rscript parati.R \
 **With haplotype window tuning, save intermediates, and PLINK outputs**:
 
 ```
-Rscript parati.R \
+Rscript path/to/PARATI/PARATI_script.R \
   --geno path/to/trios.vcf.gz \
   --family path/to/family_index.xlsx \
   --chr 1 \
-  --out results/chr1 \
+  --out path/to/results/ \
   --haplen 500 \
   --savetemp T \
   --makebed T
@@ -130,7 +130,15 @@ Note on PLINK output: Because the output encodes only the transmitted or non‑t
 
 # Testing Example:
 
+```
+git clone https://github.com/newche/PARATI.git
+cd PARATI
 
+module load plink/1.9
+
+Rscript PARATI_script.R --geno ./test/Toy_TrioGenotype.vcf.gz --family ./test/Toy_FamilyIndexTable.xlsx --out ./ --chr 22 --savetemp T --makebed T
+
+```
 
 
 
