@@ -36,15 +36,15 @@ Quality control (recommended before running PARATI): Filter by call rate and MAF
 Example: 
 The following is an example for the Trio genotype VCF input, part of the simulated testing set sim_trios_dash_5k_22chr_single.vcf.gz. 
 ```
-#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	1-M	1-P	1-B	2-M	2-P	2-B
-1	100000	rs1	G	T	.	PASS	.	GT	0/0	0/1	0/1	0/0	0/1	0/1
-1	101000	rs2	A	C	.	PASS	.	GT	0/0	0/1	0/0	0/0	0/0	0/0
-1	102000	rs3	A	T	.	PASS	.	GT	0/0	0/0	0/0	1/1	1/1	0/1
-1	103000	rs4	A	G	.	PASS	.	GT	0/1	0/1	0/1	0/1	0/0	./.
-1	104000	rs5	A	G	.	PASS	.	GT	0/1	0/0	0/1	0/0	0/1	0/0
-1	105000	rs6	T	C	.	PASS	.	GT	0/0	1/1	0/1	1/1	0/1	0/1
-1	106000	rs7	T	C	.	PASS	.	GT	0/0	0/0	0/0	0/1	0/0	0/1
-1	107000	rs8	A	C	.	PASS	.	GT	0/0	0/0	0/0	./.	0/1	0/1
+#CHROM	POS	   ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	1-M	1-P	1-B	2-M	2-P	2-B
+   1	100000	rs1	 G	 T	 .	   PASS	   .	   GT	    0/0	0/1	0/1	0/0	0/1	0/1
+   1	101000	rs2	 A	 C	 .	   PASS	   .	   GT	    0/0	0/1	0/0	0/0	0/0	0/0
+   1	102000	rs3	 A	 T	 .	   PASS	   .	   GT	    0/0	0/0	0/0	1/1	1/1	0/1
+   1	103000	rs4	 A	 G	 .	   PASS	   .	   GT	    0/1	0/1	0/1	0/1	0/0	./.
+   1	104000	rs5	 A	 G	 .	   PASS	   .	   GT	    0/1	0/0	0/1	0/0	0/1	0/0
+   1	105000	rs6	 T	 C	 .	   PASS	   .	   GT	    0/0	1/1	0/1	1/1	0/1	0/1
+   1	106000	rs7	 T	 C	 .	   PASS	   .	   GT	    0/0	0/0	0/0	0/1	0/0	0/1
+   1	107000	rs8	 A	 C	 .	   PASS	   .	   GT	    0/0	0/0	0/0	./.	0/1	0/1
 ...
 ```
 
@@ -58,15 +58,15 @@ Role — one of F (father), M (mother), C (child)
 Example:
 ```
 FamilyIndex	IndividualID	Role
-1	1-M	M
-1	1-P	F
-1	1-B	C
-2	2-M	M
-2	2-P	F
-2	2-B	C
-3	3-M	M
-3	3-P	F
-3	3-B	C
+    1	         1-M	       M
+    1	         1-P	       F
+    1	         1-B	       C
+    2	         2-M	       M
+    2	         2-P	       F
+    2	         2-B	       C
+    3	         3-M	       M
+    3	         3-P	       F
+    3	         3-B	       C
 ...
 ```
 
@@ -95,9 +95,6 @@ Rscript path/to/PARATI/PARATI_script.R \
   --savetemp T \
   --makebed T
 ```
-
---chr should match your VCF chromosome naming convention (e.g., 1 vs chr1).
---haplen is the length in kilobases of haplotype to infer heterozygotes (default ±500 kb).
 
 
 **Command‑line options:**
@@ -130,6 +127,7 @@ Note on PLINK output: Because the output encodes only the transmitted or non‑t
 
 # Testing Example:
 
+Running test commands:
 ```
 git clone https://github.com/newche/PARATI.git
 cd PARATI
@@ -139,6 +137,9 @@ module load plink/1.9
 Rscript PARATI_script.R --geno ./test/Toy_TrioGenotype.vcf.gz --family ./test/Toy_FamilyIndexTable.xlsx --out ./ --chr 22 --savetemp T --makebed T
 
 ```
+
+
+
 
 
 
